@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      charset="UTF-8"
+    ></script>
+    <title>Sidebar</title>
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="sidebar-master">
+        <div class="sidebar-header">
+          <h2 class="logo">
+            <img
+              width="45"
+              height="45"
+              src="./assets/logo.png"
+              alt="image_not_found"
+            />
+            <span>KODDİV</span>
+          </h2>
+          <!-- HUMBURGER-MENU-START -->
+          <input
+            type="checkbox"
+            id="checkbox1"
+            class="checkbox1 visuallyHidden"
+          />
+          <label for="checkbox1">
+            <div class="hamburger hamburger1">
+              <span class="bar bar1"></span>
+              <span class="bar bar2"></span>
+              <span class="bar bar3"></span>
+              <span class="bar bar4"></span>
+            </div>
+          </label>
+          <!-- HUMBURGER-MENU-END -->
+        </div>
+        <hr />
+        <nav class="sidebar-nav">
+          <ul class="nav-links">
+            <li>
+              <div class="iocn-link sub-btn">
+                <a class="title active" href="#">
+                  <i class="bx bx-grid-alt" data="Dashboard"></i>
+                  <span class="link_name">Dashboard</span>
+                </a>
+              </div>
+            </li>
+            <li>
+              <div class="iocn-link sub-btn">
+                <a class="title" href="#">
+                  <i class="bx bx-collection" data="Category"></i>
+                  <span class="link_name">Category</span>
+                </a>
+                <i class="bx bx-chevrons-right arrow"></i>
+              </div>
+              <ul class="sub-menu">
+                <li><a href="#">HTML & CSS</a></li>
+                <li><a href="#">JavaScript</a></li>
+                <li><a href="#">PHP & MySQL</a></li>
+              </ul>
+            </li>
+            <li>
+              <div class="iocn-link sub-btn">
+                <a class="title" href="#">
+                  <i class="bx bx-book-alt" data="Posts"></i>
+                  <span class="link_name">Posts</span>
+                </a>
+                <i class="bx bx-chevrons-right arrow"></i>
+              </div>
+              <ul class="sub-menu">
+                <li><a href="#">Web Design</a></li>
+                <li><a href="#">Login Form</a></li>
+                <li><a href="#">Card Design</a></li>
+              </ul>
+            </li>
+            <li>
+              <div class="iocn-link sub-btn">
+                <a class="title" href="#">
+                  <i class="bx bx-pie-chart-alt-2" data="Analytics"></i>
+                  <span class="link_name">Analytics</span>
+                </a>
+              </div>
+            </li>
+            <li>
+              <div class="iocn-link sub-btn">
+                <a class="title" href="#">
+                  <i class="bx bx-line-chart" data="Chart"></i>
+                  <span class="link_name">Chart</span>
+                </a>
+              </div>
+            </li>
+            <li>
+              <div class="iocn-link sub-btn">
+                <a class="title" href="#">
+                  <i class="bx bx-plug" data="Plugins"></i>
+                  <span class="link_name">Plugins</span>
+                </a>
+                <i class="bx bx-chevrons-right arrow"></i>
+              </div>
+              <ul class="sub-menu">
+                <li><a href="#">UI Face</a></li>
+                <li><a href="#">Pigments</a></li>
+                <li><a href="#">UI Icons</a></li>
+                <li><a href="#">Box Pigments</a></li>
+                <li><a href="#">BPig Icons</a></li>
+                <li><a href="#">Face UI</a></li>
+              </ul>
+            </li>
+            <li>
+              <div class="iocn-link sub-btn">
+                <a class="title" href="#">
+                  <i class="bx bx-compass" data="Explore"></i>
+                  <span class="link_name">Explore</span>
+                </a>
+              </div>
+            </li>
+            <li>
+              <div class="iocn-link sub-btn">
+                <a class="title" href="#">
+                  <i class="bx bx-history" data="History"></i>
+                  <span class="link_name">History</span>
+                </a>
+              </div>
+            </li>
+            <li>
+              <div class="iocn-link sub-btn">
+                <a class="title" href="#">
+                  <i class="bx bx-cog" data="Setting"></i>
+                  <span class="link_name">Setting</span>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="sidebar-footer">
+        <li>
+          <div class="profile-details">
+            <div class="name-job">
+              <div class="profile-content">
+                <img width="50" src="./assets/pp.jpg" alt="" />
+                <div class="user-text">
+                  <div class="profile_name">Recep Orta</div>
+                  <div class="job">Full Stack Developer</div>
+                </div>
+              </div>
+              <i class="bx bx-exit"></i>
+            </div>
+          </div>
+        </li>
+      </div>
+    </aside>
+    <script>
+      $(document).ready(function () {
+        $(".sub-menu").hide();
+        $(".checkbox1").click(function () {
+          if ($(".sidebar")[0].className !== "sidebar") {
+            $(".sidebar").removeClass("open");
+          } else {
+            $(".sidebar").addClass("open");
+            $(".sub-menu").slideUp();
+            $(".arrow").removeClass("rotate");
+          }
+        });
+        $(".sub-btn").click(function () {
+          $(".title.active").removeClass("active");
+          $(this).find(".title").addClass("active");
+          if ($(this)[0].children.length !== 2) {
+            $(".arrow").removeClass("rotate");
+          }
+          if ($(".sidebar")[0].className !== "sidebar open") {
+            $(".sub-menu")
+              .not($(this).next(".sub-menu").slideToggle())
+              .slideUp();
+            $(this).find(".arrow").toggleClass("rotate");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
